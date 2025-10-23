@@ -13,6 +13,8 @@ class Idol {
   }
 }
 
+//on 키워드를 적용해서, 특정 클래스 또는
+// 그 자식 클래스에만 적용 가능하게 설정.
 mixin IdolSingMixin on Idol{
   void sing(){
     print('${this.name}이 노래를 부릅니다.');

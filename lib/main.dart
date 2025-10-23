@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
+import 'screen/sample_my_app1.dart';
 
 void main() {
-  print('hello 플러터');
-}
+  runApp( MyApp() ); // runApp
+} // main()

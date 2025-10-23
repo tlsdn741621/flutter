@@ -23,7 +23,7 @@ void switcher(dynamic anything) {
 void main() {
   switcher('aaa');
   switcher([1, 2]);
-  switcher([3, 4, 5]);
+  switcher([113, 224, 335]);
   switcher([6, 7]);
   switcher(('민지', 19));
   switcher(8);

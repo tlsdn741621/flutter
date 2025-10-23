@@ -105,7 +105,7 @@ action	클릭 가능한 버튼 추가 (label, onPressed)
 
 간단한 구조의 , 스낵바 이용법. 
 
-
+방법1
 Center(
               child: Builder(
                 builder: (context) => TextButton(
@@ -118,6 +118,25 @@ Center(
                 ),
               ),
             ),
+
+방법2
+Center(
+                    child: Builder(
+                      builder: (context) =>   ElevatedButton(
+                        // 클릭 시 실행할 함수
+                        onPressed: () {
+                          // 방법2
+                          _showSnackBar(context);
+                        },
+                        // 버튼 스타일 지정
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                        ),
+                        // 버튼에 넣을 위젯
+                        child: const Text('스낵바 보기 방법2'),
+                      ),
+                    ),
+                  ),
 ==================================================================================
 IconButton 위젯
 
@@ -157,7 +176,7 @@ GestureDetector(
   // 제스처를 적용할 위젯
   child: Container(
     decoration: BoxDecoration(
-      color: Colors.red,
+      color: Colors.blue,
     ),
     width: 100.0,
     height: 100.0,
@@ -165,65 +184,71 @@ GestureDetector(
 ),
 
 표로 만들어줘
-GestureDetector 위젯에서 제공하는 제스처 매개변수 
+GestureDetector 위젯에서 제공하는 제스처 매개변수
 
 매개변수           설명
-onTap             한 번 탭했을 때 실행되는 
+onTap             한 번 탭했을 때 실행되는
 함수를 입력할 수 있습니다.
 
-onDoubleTap       두 번 연속으로 탭했을 때 
+onDoubleTap       두 번 연속으로 탭했을 때
 실행되는 함수를 입력할 수 있습니다.
 
-onLongPress       길게 누르기가 인식됐을 때 
+onLongPress       길게 누르기가 인식됐을 때
 실행되는 함수를 입력할 수 있습니다.
 
-onPanStart        수평 또는 수직으로 드래그가 시작됐을 때 
+onPanStart        수평 또는 수직으로 드래그가 시작됐을 때
 실행되는 함수를 입력할 수 있습니다.
-
-onPanUpdate       수평 또는 수직으로 드래그를 하는 
-동안 드래그 위치가 업데이트될 때마다 실행되는 
+ex)
+ onPanStart: (DragStartDetails details) {
+                      print('#################onPanStart : ${details.globalPosition}');
+                    },
+onPanUpdate: (DragUpdateDetails details){
+  print('============================onPanUpdate : ${details.delta}');
+},
+onPanUpdate       수평 또는 수직으로 드래그를 하는
+동안 드래그 위치가 업데이트될 때마다 실행되는
 함수를 입력할 수 있습니다.
 
-onPanEnd          수평 또는 수직으로 드래그가 끝났을 때 
+onPanEnd          수평 또는 수직으로 드래그가 끝났을 때
 실행되는 함수를 입력할 수 있습니다.
 
-onHorizontalDragStart   수평으로 드래그를 시작했을 때 
+onHorizontalDragStart   수평으로 드래그를 시작했을 때
 실행되는 함수를 입력할 수 있습니다.
 
-onHorizontalDragUpdate  수평으로 드래그를 하는 동안 
+onHorizontalDragUpdate  수평으로 드래그를 하는 동안
 드래그 위치가 업데이트될 때마다 실행되는 함수를 입력할 수 있습니다.
 
 매개변수               설명
-onHorizontalDragEnd    수평으로 드래그가 끝났을 때 
+onHorizontalDragEnd    수평으로 드래그가 끝났을 때
 실행되는 함수를 입력할 수 있습니다.
 
-onVerticalDragStart    수직으로 드래그를 시작했을 때 
+onVerticalDragStart    수직으로 드래그를 시작했을 때
 실행되는 함수를 입력할 수 있습니다.
 
-onVerticalDragUpdate   수직으로 드래그를 하는 동안 드래그 
+onVerticalDragUpdate   수직으로 드래그를 하는 동안 드래그
 위치가 업데이트될 때마다 실행되는 함수를 입력할 수 있습니다.
 
-onVerticalDragEnd      수직으로 드래그가 끝났을 때 실행되는 
+onVerticalDragEnd      수직으로 드래그가 끝났을 때 실행되는
 함수를 입력할 수 있습니다.
 
-onScaleStart           확대가 시작됐을 때 실행되는 함수를 
+onScaleStart           확대가 시작됐을 때 실행되는 함수를
 입력할 수 있습니다.
 
-onScaleUpdate          확대가 진행되는 동안 확대가 
+onScaleUpdate          확대가 진행되는 동안 확대가
 업데이트될 때마다 실행되는 함수를 입력할 수 있습니다.
 
-onScaleEnd             확대가 끝났을 때 실행되는 함수를 
+onScaleEnd             확대가 끝났을 때 실행되는 함수를
 입력할 수 있습니다.
 
 
  https://api.flutter.dev/flutter/widgets/GestureDetector-class.html
- 
+
 
 ========================================
-플로팅 액션 버튼, ( 마치 화면 둥둥 떠있는 버튼, 
+플로팅 액션 버튼, ( 마치 화면 둥둥 떠있는 버튼,
 웹, 탑 버튼과 비슷함. )
-주의 사항, 
-scaffold 내부에 위치 해야함. 
+주의 사항,
+scaffold 내부에 위치 해야함.
 
 floatingActionButton: FloatingActionButton(
   onPressed: () {
@@ -238,7 +263,7 @@ floatingActionButton: 은 Scaffold 내부에 위치
 
 child: 에는 일반적으로 Icon, Text, 또는 Image 등이 들어감
 
-위치 옵션. 
+위치 옵션.
 floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
 주요 위치 옵션:
@@ -253,14 +278,14 @@ centerDocked	하단 앱바 중앙
 디자인 관련 위젯
 
 
-디자인 관련 위젯은 배경을 추가하거나 간격을 추가하거나 
+디자인 관련 위젯은 배경을 추가하거나 간격을 추가하거나
 패딩을 추가하는 등 디자인적 요소를 적용할 때 사용
 
 
 Container 위젯
 
-Container 위젯은 말 그대로 다른 위젯을 담는데 사용됩니다. 
-위젯의 너비와 높이를 지정하거나, 배경이나 테두리를 추가할 때 
+Container 위젯은 말 그대로 다른 위젯을 담는데 사용됩니다.
+위젯의 너비와 높이를 지정하거나, 배경이나 테두리를 추가할 때
 많이 사용
 
 예제코드
@@ -291,12 +316,12 @@ Container(
 
 SizedBox 위젯
 
-SizedBox 위젯은 일반적으로 일정 크기의 공간을 
+SizedBox 위젯은 일반적으로 일정 크기의 공간을
 공백으로 두고 싶을 때 사용
 
 
-Container 위젯을 사용해도 공백을 만들 수 있지만 
-SizedBox는 const 생성자를 사용했을 때 
+Container 위젯을 사용해도 공백을 만들 수 있지만
+SizedBox는 const 생성자를 사용했을 때
 퍼포먼스에서 이점
 
 예제코드
@@ -306,7 +331,7 @@ SizedBox(
   height: 200.0,
   // 너비 지정
   width: 200.0,
-  // SizedBox는 색상이 없으므로 크기를 확인하는 
+  // SizedBox는 색상이 없으므로 크기를 확인하는
   // 용도로 Container 추가
   child: Container(
     color: Colors.red,
@@ -319,8 +344,8 @@ Padding 위젯
 
 Padding 위젯은 child 위젯에 여백을 제공할 때 사용
 
-Padding 위젯의 상위 위젯과 
-하위 위젯 사이의 여백을 둘 수 있습니다. 
+Padding 위젯의 상위 위젯과
+하위 위젯 사이의 여백을 둘 수 있습니다.
 
 
 예제코드
@@ -337,7 +362,7 @@ Container(
     ),
   ),
 )
-
+=================================================================================
 
 마진, 패딩 
 
