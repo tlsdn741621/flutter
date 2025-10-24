@@ -131,19 +131,36 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                IconButton(
-                    onPressed: () {
-                      print("아이콘 버튼 클릭 이벤트 확인");
-                    },
-                    icon: Icon(
-// ① 플러터에서 기본으로 제공하는 아이콘입니다.
-// 제공되는 아이콘 목록은 다음 링크에서 확인해볼 수 있습니다.
-// https://fonts.google.com/icons
-                        Icons.home)),
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          print("아이콘 버튼 클릭 이벤트 확인");
+                        },
+                        icon: Icon(
+                          // ① 플러터에서 기본으로 제공하는 아이콘입니다.
+                          // 제공되는 아이콘 목록은 다음 링크에서 확인해볼 수 있습니다.
+                          // https://fonts.google.com/icons
+                            Icons.home)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                            Icons.favorite)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                            Icons.dangerous)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                            Icons.cabin))
+                  ],
+                ),
                 IconButton(
                     onPressed: () {},
                     icon: Icon(
-                        Icons.favorite)),
+                        Icons.favorite))
+                ,
                 GestureDetector(
                   // 한 번 탭했을 때 실행할 함수
                   onTap: () {
@@ -235,8 +252,36 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
+
                 ]
             ),
+            Wrap(
+                alignment: WrapAlignment.center,
+                children:[
+                  Container(
+                    color: Colors.black, // ③ 최상위 검정 컨테이너 (margin이 적용되는 대상)
+                    child: Container(
+                      color: Colors.blue, // ② 중간 파란 컨테이너
+
+                      // 마진 적용 위치
+                      margin: EdgeInsets.all(16.0),
+
+                      // 패딩 적용
+                      child: Padding(
+                        padding: EdgeInsets.all(16.0),
+
+                        // ① 패딩이 적용된 빨간 컨테이너
+                        child: Container(
+                          color: Colors.red,
+                          width: 50.0,
+                          height: 50.0,
+                        ),
+                      ),
+                    ),
+                  )
+                ]
+            )
+
           ],
         ),
 

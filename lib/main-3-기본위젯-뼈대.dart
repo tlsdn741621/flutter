@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
       MaterialApp(
-        home: Scaffold(
-            body :
-            Center(
+        home: Scaffold( // 앱 화면을 구성하는 기본 뼈대
+            body : // 화면을 그리는 작업.
+            Center( // 배치 해주는 위젯,
               child: Text(
                 // "헬로우 busanit 501, 플러터 앱 화면 작업 시작."
                 // 작성하고 싶은 글
