@@ -13,7 +13,9 @@ class _MySplash2State extends State<MySplash2> {
   // 스플래쉬 기능을 하기 위해서, 스테이트풀의 생명주기를 이용해서,
   // 초기 세팅작업에서, 3초 뒤에, 메인화면으로 이동하는 코드 추가.
   @override
-  void initState() {
+  void initState() { // 생명주기1번, 빌드 전에, 즉, 그리기전에
+    // 초기 세팅 값을 지정을함. 그래서, 스플래쉬,.
+    // 스트이트 리스 안하고, 스테이트 풀로 지정함.
     // TODO: implement initState
     super.initState();
     // 3초 뒤, 메인 이동

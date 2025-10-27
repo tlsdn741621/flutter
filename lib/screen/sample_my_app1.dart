@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 // 2) 상태를 관리하는 , 스테이트 풀 위젯. -> 동적 화면, 상태에 따라서 화면표기.
 // 예시) 점수가 표시되는 간판.
 
-
 class MyApp extends StatelessWidget {
 
   // SnackBar를 보여주는 함수
@@ -43,11 +42,11 @@ class MyApp extends StatelessWidget {
 
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body : ListView(
-          children: [
+  Widget build(BuildContext context) { // 그림을 그리는 도구.
+    return MaterialApp( // 머터리얼 디자인 도구함.
+      home: Scaffold( // 도화지, 빈 캔버스,
+        body : ListView( // 여러 개의 위젯(화면, ui) 구성하는 목록.
+          children: [ // 복수개 UI 구성 가능 <-> child 단수개의 UI 구성 가능.
             Column ( // Flex 세로방향으로 나란히 배치 비슷
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
