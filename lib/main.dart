@@ -17,10 +17,12 @@ void main() {
   // runApp( MyApp() ); // runApp
   // runApp( MySplash2() ); // runApp
   runApp(
-      MultiProvider(
+      MultiProvider( // 다중 프로바이더를 사용하겠다.
         providers: [
+          // 서버로부터 데이터 변경을 감지 하면 -> 화면으로 데이터를 업데이트 한다. ->
           ChangeNotifierProvider(create: (context) => FoodController())
         ],
         child: const MyAppRouting(),)
   );
+
 } // main()
