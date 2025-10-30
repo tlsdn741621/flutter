@@ -16,7 +16,7 @@ class LoginController extends ChangeNotifier {
   // 주의사항, 각자 아이피를 사용해야합니다. 그대로 사용하면 안됩니다.
   // localhost 로 하면 안됩니다.
   // 만약, 에뮬레이터로 진행을 하면, : 10.0.2.2 로 변경해서 진행해보기.
-  final String serverIp = "http://10.0.2.2:8080"; // 서버 주소 변경 필요
+  final String serverIp = "http://10.100.201.87:8080"; // 서버 주소 변경 필요
   bool isLoading = false; // 로그인 로딩 상태
   bool isLoggedIn = false; // 로그인 여부
 
@@ -51,10 +51,12 @@ class LoginController extends ChangeNotifier {
 
         String accessToken = responseData["accessToken"];
         String refreshToken = responseData["refreshToken"];
+        String profileImg = responseData["profileImg"];
 
         // JWT 토큰 보안 저장소에 저장
         await secureStorage.write(key: "accessToken", value: accessToken);
         await secureStorage.write(key: "refreshToken", value: refreshToken);
+        await secureStorage.write(key: "profileImg", value: profileImg);
         await secureStorage.write(key: "mid", value: inputId); // 로그인한 ID 저장
 
         // 입력란 초기화
@@ -115,6 +117,7 @@ class LoginController extends ChangeNotifier {
   Future<void> logout(BuildContext context) async {
     await secureStorage.delete(key: "accessToken");
     await secureStorage.delete(key: "refreshToken");
+    await secureStorage.delete(key: "profileImg");
     await secureStorage.delete(key: "mid");
 
     // 로그인 상태 업데이트
@@ -175,5 +178,12 @@ class LoginController extends ChangeNotifier {
         );
       },
     );
+  }
+  // ✅ --- dispose 함수 추가 ---
+  @override
+  void dispose() {
+    idController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }

@@ -1,9 +1,14 @@
 import 'package:hello_flutter/sample_design/list_of_listview_sample.dart';
 import 'package:hello_flutter/sample_design/navigation_mode_sample1.dart';
 import 'package:hello_flutter/sample_design/tap_mode_sample2.dart';
+import 'package:hello_flutter/screen/main_screen.dart';
+import 'package:hello_flutter/screen/main_screen_%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%EC%A0%95%EB%B3%B4%20%EB%B3%B4%EC%97%AC%EC%A3%BC%EA%B8%B0%EC%A0%84%20%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8%EB%A6%AC%EC%8A%A4%20%EB%B2%84%EC%A0%84.dart';
 import 'package:hello_flutter/screen/my_splash2.dart';
 import 'package:hello_flutter/screen/pd_data/food_screen.dart';
 import 'package:hello_flutter/screen/signup_screen.dart';
+import 'package:hello_flutter/screen/todos/todo_create_screen.dart';
+import 'package:hello_flutter/screen/todos/todo_detail_screen.dart';
+import 'package:hello_flutter/screen/todos/todos_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,13 +27,17 @@ class MyAppRouting extends StatelessWidget {
       //라우팅 준비물 1,
       routes: {
         '/main': (context) => MainScreen2(),
-        '/signup': (context) => const MySignUpScreen(),
+        '/signup': (context) => const SignupScreen(),
         '/login': (context) => const MyLoginScreen(),
         // 공공데이터 받아 오는 화면으로 라우팅 추가.
         '/pdtest': (context) => const MyPdTestScreen(),
         '/sample_design': (context) => const Sample3ListOfListView(),
         '/sample_design2': (context) => MaterialHomePage(),
         '/sample_design3': (context) => ResponsiveNavBarPage(),
+        '/todos': (context) => TodosScreen(),
+        "/todoCreate": (context) => const TodoCreateScreen(),
+        '/todoDetail': (context) => TodoDetailScreen(tno: ModalRoute.of(context)!.settings.arguments as int),
+
       },
     );
   }
