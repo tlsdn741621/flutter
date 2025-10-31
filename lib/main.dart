@@ -1,15 +1,16 @@
 import 'package:hello_flutter/controller/auth/login_controller.dart';
+import 'package:hello_flutter/controller/auth/signup_controller.dart';
+import 'package:hello_flutter/controller/todos/todo_controller.dart';
 import 'package:hello_flutter/screen/login_screen.dart';
 import 'package:hello_flutter/screen/main_screen.dart';
 import 'package:hello_flutter/screen/my_app_routing.dart';
 import 'package:hello_flutter/screen/my_splash.dart';
-import 'package:flutter/material.dart';
 import 'package:hello_flutter/screen/my_splash2.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'controller/auth/signup_controller.dart';
+import 'controller/ai/image/ai_image_controller.dart';
 import 'controller/pd_data/food_controller.dart';
-import 'controller/todos/todo_controller.dart';
 import 'screen/sample_my_app1.dart';
 
 void main() {
@@ -28,7 +29,7 @@ void main() {
           ChangeNotifierProvider(create: (context) => LoginController()),
           ChangeNotifierProvider(create: (context) => SignupController()),
           ChangeNotifierProvider(create: (context) => TodoController()),
-
+          ChangeNotifierProvider(create: (context) => AiImageController()), // Todos 컨트롤러 추가
         ],
         child: const MyAppRouting(),
       )

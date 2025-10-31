@@ -17,7 +17,7 @@ class _MainScreen2State extends State<MainScreen2> {
   final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
 
   // ✅ 서버 IP (SignupController와 동일하게 설정해야 합니다)
-  final String serverIp = "http://10.100.201.87:8080"; // ‼️ localhost 대신 실제 IP 사용
+  final String serverIp = "http://10.0.2.2:8080"; // ‼️ localhost 대신 실제 IP 사용
 
   String? userId;
   String? profileImgId; // ✅ 프로필 이미지 ID를 저장할 변수
@@ -141,8 +141,13 @@ class _MainScreen2State extends State<MainScreen2> {
                 ),
               if (loginController.isLoggedIn)
                 ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, '/ai'),
-                  child: const Text('Ai 테스트'),
+                  onPressed: () => Navigator.pushNamed(context, '/ai-image'),
+                  child: const Text('Ai 이미지 테스트'),
+                ),
+              if (loginController.isLoggedIn)
+                ElevatedButton(
+                  onPressed: () => Navigator.pushNamed(context, '/ai-stock'),
+                  child: const Text('Ai 주가 테스트'),
                 ),
             ],
           )),
